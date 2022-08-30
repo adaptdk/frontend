@@ -1,0 +1,7 @@
+{
+    "name": "frontend-playground",
+    "workspaces": [
+      "sanity",
+      "react-tool"
+    ]
+  }
