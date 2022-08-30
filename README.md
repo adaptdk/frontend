@@ -1,2 +1,2 @@
-# frontend
-The playground for the frontend team
+# Frontend Playground
+This repo contains the playground for the frontend team to do funny things
