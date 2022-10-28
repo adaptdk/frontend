@@ -18,3 +18,4 @@ php please make:user
 - [ ] Routing @frederiknygaardadapt
 - [ ] Redirects @frederiknygaardadapt
 - [ ] Creating content modules @meanderson
+- [ ] Render all SEO fields
