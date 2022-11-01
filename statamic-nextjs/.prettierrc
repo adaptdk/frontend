@@ -1,0 +1,24 @@
+{
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 100,
+    "quoteProps": "as-needed",
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "useTabs": false,
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrder": [
+      "<THIRD_PARTY_MODULES>",
+      "^@lib/?(.*)$",
+      "^@assets/?(.*)$",
+      "^@atoms/?(.*)$",
+      "^@molecules/?(.*)$",
+      "^@organisms/?(.*)$",
+      "^@habitats/?(.*)$",
+      "^[./]"
+    ]
+  }
