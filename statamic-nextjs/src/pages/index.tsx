@@ -2,12 +2,10 @@ import { gql, request } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 
-type Props = {
-  /** Really hope it is pong */
-  ping: string
-}
+type Props = any
 
-const Home: NextPage<Props> = ({ ping }) => {
+const Home: NextPage<Props> = ({ ...rest }) => {
+  console.log(rest)
   return (
     <div>
       <Head>
@@ -18,7 +16,7 @@ const Home: NextPage<Props> = ({ ping }) => {
 
       <main>
         <h1>
-          Does it return pong: <i>{ping}</i>
+          Does it return pong: <i></i>
         </h1>
 
         <p>...then we have access to Statamic!</p>
@@ -30,7 +28,45 @@ const Home: NextPage<Props> = ({ ping }) => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const query = gql`
     {
-      ping
+      entry(uri: "/") {
+        title
+        ... on Entry_Pages_Frontpage {
+          id
+          hero_body
+          hero_image {
+            url
+          }
+          hero_title
+          hero_link_title
+          hero_link
+          replicator_content {
+            ... on Set_ReplicatorContent_VideoPlayer {
+              description
+              large_video
+            }
+            ... on Set_ReplicatorContent_ElementWithTextAndTwoCards {
+              title
+              text
+            }
+            ... on Set_ReplicatorContent_ElementWithTextAndIllustration {
+              text
+              layout
+            }
+            ... on Set_ReplicatorContent_ElementMTekstOgBillede {
+              bodytext
+              layout
+            }
+            ... on Set_ReplicatorContent_NewsWidget {
+              news_widget_title
+              news_widget_elements {
+                ... on Set_NewsWidgetElements_Nyhed {
+                  hide_universe_tag
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `
 
