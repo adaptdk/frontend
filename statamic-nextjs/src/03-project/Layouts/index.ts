@@ -1,0 +1,1 @@
+export { LayoutFrontpage } from './LayoutFrontpage'
