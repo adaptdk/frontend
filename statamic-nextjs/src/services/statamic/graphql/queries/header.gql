@@ -1,0 +1,17 @@
+query getHeader($handle: String!) {
+  header: nav(handle: $handle) {
+    title
+    tree {
+      page {
+        title
+        url
+      }
+      children {
+        page {
+          url
+          title
+        }
+      }
+    }
+  }
+}

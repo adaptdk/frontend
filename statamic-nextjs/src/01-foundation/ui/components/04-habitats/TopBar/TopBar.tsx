@@ -10,10 +10,7 @@ type NavItem = {
 }
 
 export type Props = {
-  nav: {
-    title: string
-    tree: NavItem[]
-  }
+  nav: any
   asPath: string
 }
 
@@ -23,6 +20,8 @@ export const TopBar = ({ nav, asPath }: Props) => {
   useEffect(() => {
     setCurrentPath(asPath)
   }, [asPath])
+
+  if (!nav?.tree) return null
 
   return (
     <div className="h-11 relative z-50 w-full bg-grey-top-nav">
