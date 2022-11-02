@@ -1,0 +1,94 @@
+query getFrontpage {
+  entry(uri: "/") {
+    title
+    blueprint
+    collection {
+      handle
+    }
+    ... on Entry_Pages_Frontpage {
+      id
+      description
+      hero_body
+      hero_image {
+        url
+        permalink
+      }
+      hero_title
+      hero_link_title
+      hero_link
+      hero_usp_elements {
+        icon {
+          value
+          label
+        }
+        text
+      }
+      replicator_content {
+        __typename
+        ... on Set_ReplicatorContent_ElementMTekstOgBillede {
+          bodytext
+          layout
+          button_link
+          button_text
+          layout_direction {
+            value
+          }
+          title
+          image_pages {
+            ... on Asset_Pages {
+              id
+              permalink
+              width
+              height
+              alt
+            }
+          }
+          background_color {
+            value
+          }
+        }
+        ... on Set_ReplicatorContent_ElementWithTextAndIllustration {
+          text
+          layout
+          layout_direction {
+            value
+          }
+          title
+          background {
+            value
+          }
+          button_link
+          button_text
+          illustration {
+            value
+          }
+        }
+      }
+    }
+  }
+
+  globalSet(handle: "seo") {
+    site {
+      name
+      url
+    }
+    ... on GlobalSet_Seo {
+      site {
+        locale
+        name
+        short_locale
+        url
+      }
+    }
+  }
+
+  nav(handle: "universes") {
+    title
+    tree {
+      page {
+        title
+        url
+      }
+    }
+  }
+}
