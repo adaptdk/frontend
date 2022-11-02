@@ -21,6 +21,25 @@ module.exports = {
     },
     extend: {
       colors: {
+        grey: {
+          element: '#F8F8F8',
+          accordion: '#F6F6F6',
+          nav: '#F2F2F2',
+          'border-nav': '#F5F7F8',
+          'border-group': '#F4F4F4',
+          'border-footer': '#E7E7E7',
+          'border-table': '#DCDCDC',
+          'border-input': '#757575',
+          'placeholder-input': '#5D5D5D',
+          'over-footer-background': '#322f4c',
+          'button-hover': '#CFCFCF',
+          button: '#EEEEEE',
+          'top-nav': '#E5E5E5',
+        },
+        pages: {
+          tag: '#000000',
+          500: '#CD1D28',
+        },
         sd: {
           red: {
             300: '#FFF4F5',
