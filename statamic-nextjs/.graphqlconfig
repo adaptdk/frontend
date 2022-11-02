@@ -1,0 +1,12 @@
+{
+  "name": "Remote Schema",
+  "schemaPath": "remote-schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Statamic Graphql Endpoint": {
+        "url": "https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql",
+        "introspect": true
+      }
+    }
+  }
+}
