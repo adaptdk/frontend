@@ -1,5 +1,6 @@
 import { FALLBACK_DESCRIPTION } from '@foundation/config/constants'
 import { Header } from '@foundation/ui/components/04-habitats/Header'
+import { TopBar } from '@foundation/ui/components/04-habitats/TopBar'
 import classNames from 'classnames'
 import { gql, request } from 'graphql-request'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
@@ -9,18 +10,20 @@ import { useRouter } from 'next/router'
 
 type Props = any
 
-const Home: NextPage<Props> = ({ globalSet, entry, nav }) => {
+const Home: NextPage<Props> = ({ globalSet, entry, topNav, header }) => {
   const { asPath } = useRouter()
 
   return (
     <div>
       <Head>
         <title>{`${entry?.title} | ${globalSet.site.name}`}</title>
-        <meta name="description" content={entry.description || FALLBACK_DESCRIPTION} />
+        <meta name="description" content={entry?.description || FALLBACK_DESCRIPTION} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header nav={nav} asPath={asPath} />
+      <TopBar nav={topNav} asPath={asPath} />
+
+      <Header header={header} />
 
       <main>
         <h1>Hej: {entry?.title}</h1>
@@ -52,6 +55,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       entry(uri: "/${uri}") {
         title
         url
+        collection {
+          handle
+        }
       }
       globalSet(handle: "seo") {
         site {
@@ -66,7 +72,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
           }
         }
       }
-      nav(handle: "universes") {
+      topNav: nav(handle: "universes") {
         title
         tree {
           page {
@@ -83,9 +89,35 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     pageQuery
   )
 
+  const headerQuery = gql`
+    {
+      header: nav(handle: "${response.entry?.collection.handle}") {
+        title
+        tree {
+          page {
+            title
+            url
+          }
+          children {
+            page {
+              url
+              title
+            }
+          }
+        }
+      }
+    }
+  `
+
+  const header = await request(
+    'https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql',
+    headerQuery
+  )
+
   return {
     props: {
       ...response,
+      ...header,
     },
     revalidate: 60,
   }

@@ -5,7 +5,6 @@ documents: 'src/services/statamic/queries/**/*.gql'
 hooks:
   afterAllFileWrite:
     - 'prettier --write'
-    - 'eslint --fix'
 generates:
   src/services/statamic/generated.ts:
     plugins:

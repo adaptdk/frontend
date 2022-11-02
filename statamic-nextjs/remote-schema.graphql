@@ -4,4 +4,4854 @@ schema {
     query: Query
 }
 
-type Query
+interface AssetInterface {
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+interface EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    title: String!
+    uri: String
+    url: String
+}
+
+interface GlobalSetInterface {
+    handle: String!
+    site: Site!
+    title: String!
+}
+
+interface NavPage_Business
+
+interface NavPage_BusinessFooter
+
+interface NavPage_Magazine
+
+interface NavPage_MagazineFooter
+
+interface NavPage_Pages
+
+interface NavPage_PagesFooter
+
+interface NavPage_Providers
+
+interface NavPage_ProvidersFooter
+
+interface NavPage_Universes
+
+interface PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+interface TermInterface {
+    edit_url: String!
+    id: ID!
+    permalink: String
+    slug: String!
+    taxonomy: Taxonomy!
+    title: String!
+    uri: String
+    url: String
+}
+
+union Sets_Accordions = Set_Accordions_Accordion
+
+union Sets_Addons = Set_Addons_TilvalgsKort
+
+union Sets_Bodytext = BardText
+
+union Sets_Cards_Text = BardText
+
+union Sets_Categories = Set_Categories_Kategori
+
+union Sets_Content = BardText | Set_Content_Accordion | Set_Content_CookieSamtykke | Set_Content_ElementMTekstOgBillede | Set_Content_ElementWithTextAndIllustration | Set_Content_ElementWithTextAndTwoCards | Set_Content_Facts | Set_Content_Image | Set_Content_Knap | Set_Content_Pdf | Set_Content_Reklamefilm | Set_Content_StepByStep | Set_Content_Telefon | Set_Content_Testimonials | Set_Content_TidsSkema | Set_Content_VideoPlayer
+
+union Sets_Description = BardText
+
+union Sets_EditorialContent = BardText
+
+union Sets_FooterContent = Set_FooterContent_ArticleTeaserGroup | Set_FooterContent_ElementWithTextAndIllustration
+
+union Sets_Groups = Set_Groups_GruppeKort
+
+union Sets_Intro = BardText
+
+union Sets_ModalContent = BardText
+
+union Sets_NewsWidgetElements = Set_NewsWidgetElements_Nyhed
+
+union Sets_OperatingStatuses = Set_OperatingStatuses_OperatingStatus
+
+union Sets_Replicator = Set_Replicator_Articles
+
+union Sets_ReplicatorContent = Set_ReplicatorContent_ElementMTekstOgBillede | Set_ReplicatorContent_ElementWithTextAndIllustration | Set_ReplicatorContent_ElementWithTextAndTwoCards | Set_ReplicatorContent_Facts | Set_ReplicatorContent_NewsWidget | Set_ReplicatorContent_StepByStep | Set_ReplicatorContent_Testimonials | Set_ReplicatorContent_VideoPlayer
+
+union Sets_RequirementsDescription = BardText
+
+union Sets_Results = Set_Results_Resultat
+
+union Sets_Results_Html = BardText
+
+union Sets_Rows = Set_Rows_Row
+
+union Sets_Steps = Set_Steps_Step
+
+union Sets_SubsidyTableSection = Set_SubsidyTableSection_SubsidyTableMaxHeader | Set_SubsidyTableSection_SubsidyTableRow
+
+union Sets_SubsidyTableSection_SubsidyTitle = BardText
+
+union Sets_Text = BardText
+
+union Sets_TextField = BardText | Set_TextField_Knap | Set_TextField_Pdf | Set_TextField_Telefon
+
+union Sets_ThemeLinks = Set_ThemeLinks_ThemeLink
+
+type AssetContainer {
+    handle: String!
+    title: String!
+}
+
+type AssetInterfacePagination {
+    "Current page of the cursor"
+    current_page: Int!
+    "List of items on the current page"
+    data: [AssetInterface]
+    "Number of the first item returned"
+    from: Int
+    "Determines if cursor has more pages after the current page"
+    has_more_pages: Boolean!
+    "The last page (number of pages)"
+    last_page: Int!
+    "Number of items returned per page"
+    per_page: Int!
+    "Number of the last item returned"
+    to: Int
+    "Number of total items selected by the query"
+    total: Int!
+}
+
+type Asset_All implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Assets implements AssetInterface {
+    alt: String
+    blueprint: String
+    class: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Business implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Magazine implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Medier implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Pages implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Providers implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Subsidies implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type Asset_Testimonials implements AssetInterface {
+    alt: String
+    blueprint: String
+    container: AssetContainer!
+    edit_url: String
+    extension: String!
+    focus_css: String
+    folder: String
+    height: Float
+    id: String!
+    is_audio: Boolean
+    is_image: Boolean
+    is_video: Boolean
+    last_modified: String
+    orientation: String
+    path: String!
+    permalink: String
+    ratio: Float
+    size: String
+    size_b: Int
+    size_bytes: Int
+    size_gb: Float
+    size_gigabytes: Float
+    size_kb: Float
+    size_kilobytes: Float
+    size_mb: Float
+    size_megabytes: Float
+    url: String
+    width: Float
+}
+
+type BardText {
+    text: String
+    type: String!
+}
+
+type Code {
+    code: String!
+    mode: String!
+}
+
+type Collection {
+    handle: String!
+    structure: CollectionStructure
+    title: String!
+}
+
+type CollectionStructure {
+    expects_root: Boolean!
+    handle: String!
+    max_depth: Int
+    title: String!
+    tree(site: String): [CollectionTreeBranch]
+}
+
+type CollectionTreeBranch {
+    children: [CollectionTreeBranch]
+    depth: Int!
+    entry: EntryInterface
+    page: EntryInterface @deprecated(reason: "Replaced by `entry`")
+}
+
+type DateRange {
+    end(format: String): String
+    start(format: String): String
+}
+
+type EntryInterfacePagination {
+    "Current page of the cursor"
+    current_page: Int!
+    "List of items on the current page"
+    data: [EntryInterface]
+    "Number of the first item returned"
+    from: Int
+    "Determines if cursor has more pages after the current page"
+    has_more_pages: Boolean!
+    "The last page (number of pages)"
+    last_page: Int!
+    "Number of items returned per page"
+    per_page: Int!
+    "Number of the last item returned"
+    to: Int
+    "Number of total items selected by the query"
+    total: Int!
+}
+
+type Entry_Advice_Article implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    footer_content: [Sets_FooterContent]
+    hero_image: AssetInterface
+    hide_title: Boolean
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Advice_Frontpage implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    headline: String
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    sub_text: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_Advice_Themepage implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    hero_image: AssetInterface!
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sub_title: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Business_Form implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_Business_Frontpage implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Business_Shadow implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Business_Standard implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_Commercials_Commercials implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    poster_image: AssetInterface!
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    title: String!
+    uri: String
+    url: String
+    video: AssetInterface!
+}
+
+type Entry_ElementWithTextAndIllustration_ElementWithTextAndIllustration implements EntryInterface {
+    background: LabeledValue
+    blueprint: String
+    button_icon: LabeledValue
+    button_link: String
+    button_section: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    heading_family: LabeledValue
+    heading_type: LabeledValue
+    id: ID!
+    illustration: LabeledValue!
+    last_modified(format: String): String
+    layout: String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    text: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Magazine_Article implements EntryInterface {
+    author: String
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    cover_image: AssetInterface
+    date(format: String): String
+    description: String
+    edit_url: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    published_at(format: String): String
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Magazine_Frontpage implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    editorial: [GridItem_Editorial]
+    entries: [GridItem_Entries]
+    heading: String
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    manchet: String
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    read_more: [EntryInterface]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Magazine_Shadow implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Magazine_Standard implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_OverFooter_OverFooter implements EntryInterface {
+    blueprint: String
+    button: String
+    button_link: String!
+    button_style: LabeledValue!
+    button_text: String!
+    collection: Collection!
+    date(format: String): String
+    description: String!
+    edit_url: String!
+    id: ID!
+    image: LabeledValue!
+    last_modified(format: String): String
+    layout: String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_Addon implements EntryInterface {
+    addon_color: LabeledValue!
+    addons: [Sets_Addons]
+    back_button: String
+    back_link: String
+    back_text: String
+    blueprint: String
+    button_link: String
+    button_text: String
+    col_1_title: String
+    col_2_title: String
+    col_3_title: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    header_content: String
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    rows: [Sets_Rows]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    table_title: String
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_AddonOverview implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_Form implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_Frontpage implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_GroupOverview implements EntryInterface {
+    blueprint: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    groups: [Sets_Groups]
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_Standard implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_SubsidyOverview implements EntryInterface {
+    blueprint: String
+    categories: [Sets_Categories]
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    id: ID!
+    illustration: AssetInterface
+    increased_subsidy: [GridItem_IncreasedSubsidy]
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_link_1: String
+    subsidy_link_2: String
+    subsidy_link_title_1: String
+    subsidy_link_title_2: String
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Pages_Tilskud implements EntryInterface {
+    banner_title: String!
+    blueprint: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    electronic_reporting_and_eu: Boolean
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    list: [String]
+    locale: String!
+    modal_content: String
+    modal_headline1: String
+    modal_headline2: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_categories: TermInterface
+    subsidy_entries: [EntryInterface]
+    subsidy_requirement_text1: String
+    subsidy_requirement_text2: String
+    subsidy_years: TermInterface
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Providers_Frontpage implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Providers_Shadow implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Providers_Standard implements EntryInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type Entry_StepByStep_StepByStep implements EntryInterface {
+    blueprint: String
+    button: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    steps: [Sets_Steps]
+    steps_section: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Testimonials_Testimonials implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    group: LabeledValue
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    name: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    profile_image: AssetInterface!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    testimonial: String!
+    title: String!
+    uri: String
+    url: String
+}
+
+type Entry_Tilskud_Tilskud implements EntryInterface {
+    blueprint: String
+    collection: Collection!
+    content(
+        "How the value should be formatted. Either \"markdown\" or \"html\". Defaults to \"html\"."
+        format: String = "html"
+    ): String
+    date(format: String): String
+    edit_url: String!
+    hide_columns: Boolean
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    subsidy_categories: TermInterface!
+    subsidy_table_groups: [LabeledValue]!
+    subsidy_table_section: [Sets_SubsidyTableSection]
+    subsidy_years: TermInterface!
+    titel: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type Field {
+    config: Array
+    display: String!
+    handle: String!
+    instructions: String
+    type: String!
+}
+
+type Form {
+    fields: [Field]
+    handle: String!
+    honeypot: String
+    rules: Array
+    title: String!
+}
+
+type GlobalSet_404Settings implements GlobalSetInterface {
+    handle: String!
+    site: Site!
+    text: String
+    title: String!
+}
+
+type GlobalSet_ConsentSettings implements GlobalSetInterface {
+    approved_message: String
+    consent_text: String
+    denied_message: String
+    handle: String!
+    page: String
+    page_title: String
+    read_more: String
+    site: Site!
+    slug: String
+    text: String
+    title: String!
+}
+
+type GlobalSet_DanmarkTesten implements GlobalSetInterface {
+    debug: Boolean
+    handle: String!
+    intro: String
+    questions: String
+    results: [Sets_Results]
+    site: Site!
+    title: String!
+}
+
+type GlobalSet_MagazineFacebook implements GlobalSetInterface {
+    handle: String!
+    site: Site!
+    title: String!
+}
+
+type GlobalSet_MagazineLegalInfo implements GlobalSetInterface {
+    handle: String!
+    site: Site!
+    text: String
+    title: String!
+}
+
+type GlobalSet_MagazineSymptomcheck implements GlobalSetInterface {
+    handle: String!
+    link: String
+    link_text: String
+    site: Site!
+    text: String
+    title: String!
+}
+
+type GlobalSet_Seo implements GlobalSetInterface {
+    handle: String!
+    site: Site!
+    title: String!
+}
+
+type GridItem_Cards {
+    illustration: AssetInterface!
+    link: String!
+    text: String
+    title: String!
+}
+
+type GridItem_Categories_Symbols {
+    subsidy_symbol_icon: LabeledValue
+    subsidy_symbol_text: String
+}
+
+type GridItem_Editorial {
+    editorial: String
+    editorial_button: String
+    editorial_button_link: String
+    editorial_button_text: String
+    editorial_content: String
+    editorial_title: String
+}
+
+type GridItem_Entries {
+    article: EntryInterface
+    text: String
+    title: String
+}
+
+type GridItem_HeroUspElements {
+    icon: LabeledValue!
+    text: String!
+}
+
+type GridItem_IncreasedSubsidy {
+    subsidy_symbol_icon: LabeledValue
+    subsidy_symbol_text: String
+}
+
+type LabeledValue {
+    label: String
+    value: String
+}
+
+type NavBasicPage_Business implements NavPage_Business & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_BusinessFooter implements NavPage_BusinessFooter & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_Magazine implements NavPage_Magazine & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_MagazineFooter implements NavPage_MagazineFooter & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_Pages implements NavPage_Pages & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_PagesFooter implements NavPage_PagesFooter & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_Providers implements NavPage_Providers & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_ProvidersFooter implements NavPage_ProvidersFooter & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavBasicPage_Universes implements NavPage_Universes & PageInterface {
+    entry_id: ID
+    id: ID!
+    permalink: String
+    title: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Business_Form implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Business_Frontpage implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Business_Shadow implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Business_Standard implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_Addon implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    addon_color: LabeledValue!
+    addons: [Sets_Addons]
+    back_button: String
+    back_link: String
+    back_text: String
+    blueprint: String
+    button_link: String
+    button_text: String
+    col_1_title: String
+    col_2_title: String
+    col_3_title: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    header_content: String
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    rows: [Sets_Rows]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    table_title: String
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_AddonOverview implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_Form implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_Frontpage implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_GroupOverview implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    blueprint: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    groups: [Sets_Groups]
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_Standard implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_SubsidyOverview implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    blueprint: String
+    categories: [Sets_Categories]
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    illustration: AssetInterface
+    increased_subsidy: [GridItem_IncreasedSubsidy]
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_link_1: String
+    subsidy_link_2: String
+    subsidy_link_title_1: String
+    subsidy_link_title_2: String
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_BusinessFooter_Pages_Tilskud implements EntryInterface & NavPage_BusinessFooter & PageInterface {
+    banner_title: String!
+    blueprint: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    electronic_reporting_and_eu: Boolean
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    list: [String]
+    locale: String!
+    modal_content: String
+    modal_headline1: String
+    modal_headline2: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_categories: TermInterface
+    subsidy_entries: [EntryInterface]
+    subsidy_requirement_text1: String
+    subsidy_requirement_text2: String
+    subsidy_years: TermInterface
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Business_Business_Form implements EntryInterface & NavPage_Business & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Business_Business_Frontpage implements EntryInterface & NavPage_Business & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Business_Business_Shadow implements EntryInterface & NavPage_Business & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Business_Business_Standard implements EntryInterface & NavPage_Business & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Magazine_Article implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    author: String
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    cover_image: AssetInterface
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    published_at(format: String): String
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Magazine_Frontpage implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    editorial: [GridItem_Editorial]
+    entries: [GridItem_Entries]
+    entry_id: ID
+    heading: String
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    manchet: String
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    read_more: [EntryInterface]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Magazine_Shadow implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Magazine_Standard implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_Addon implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    addon_color: LabeledValue!
+    addons: [Sets_Addons]
+    back_button: String
+    back_link: String
+    back_text: String
+    blueprint: String
+    button_link: String
+    button_text: String
+    col_1_title: String
+    col_2_title: String
+    col_3_title: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    header_content: String
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    rows: [Sets_Rows]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    table_title: String
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_AddonOverview implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_Form implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_Frontpage implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_GroupOverview implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    blueprint: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    groups: [Sets_Groups]
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_Standard implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_SubsidyOverview implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    blueprint: String
+    categories: [Sets_Categories]
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    illustration: AssetInterface
+    increased_subsidy: [GridItem_IncreasedSubsidy]
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_link_1: String
+    subsidy_link_2: String
+    subsidy_link_title_1: String
+    subsidy_link_title_2: String
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_MagazineFooter_Pages_Tilskud implements EntryInterface & NavPage_MagazineFooter & PageInterface {
+    banner_title: String!
+    blueprint: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    electronic_reporting_and_eu: Boolean
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    list: [String]
+    locale: String!
+    modal_content: String
+    modal_headline1: String
+    modal_headline2: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_categories: TermInterface
+    subsidy_entries: [EntryInterface]
+    subsidy_requirement_text1: String
+    subsidy_requirement_text2: String
+    subsidy_years: TermInterface
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Magazine_Magazine_Article implements EntryInterface & NavPage_Magazine & PageInterface {
+    author: String
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    cover_image: AssetInterface
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    published_at(format: String): String
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Magazine_Magazine_Frontpage implements EntryInterface & NavPage_Magazine & PageInterface {
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    editorial: [GridItem_Editorial]
+    entries: [GridItem_Entries]
+    entry_id: ID
+    heading: String
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    manchet: String
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    read_more: [EntryInterface]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Magazine_Magazine_Shadow implements EntryInterface & NavPage_Magazine & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Magazine_Magazine_Standard implements EntryInterface & NavPage_Magazine & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_Addon implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    addon_color: LabeledValue!
+    addons: [Sets_Addons]
+    back_button: String
+    back_link: String
+    back_text: String
+    blueprint: String
+    button_link: String
+    button_text: String
+    col_1_title: String
+    col_2_title: String
+    col_3_title: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    header_content: String
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    rows: [Sets_Rows]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    table_title: String
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_AddonOverview implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_Form implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_Frontpage implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_GroupOverview implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    blueprint: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    groups: [Sets_Groups]
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_Standard implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_SubsidyOverview implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    blueprint: String
+    categories: [Sets_Categories]
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    illustration: AssetInterface
+    increased_subsidy: [GridItem_IncreasedSubsidy]
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_link_1: String
+    subsidy_link_2: String
+    subsidy_link_title_1: String
+    subsidy_link_title_2: String
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_PagesFooter_Pages_Tilskud implements EntryInterface & NavPage_PagesFooter & PageInterface {
+    banner_title: String!
+    blueprint: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    electronic_reporting_and_eu: Boolean
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    list: [String]
+    locale: String!
+    modal_content: String
+    modal_headline1: String
+    modal_headline2: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_categories: TermInterface
+    subsidy_entries: [EntryInterface]
+    subsidy_requirement_text1: String
+    subsidy_requirement_text2: String
+    subsidy_years: TermInterface
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_Addon implements EntryInterface & NavPage_Pages & PageInterface {
+    addon_color: LabeledValue!
+    addons: [Sets_Addons]
+    back_button: String
+    back_link: String
+    back_text: String
+    blueprint: String
+    button_link: String
+    button_text: String
+    col_1_title: String
+    col_2_title: String
+    col_3_title: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    header_content: String
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    rows: [Sets_Rows]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    table_title: String
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_AddonOverview implements EntryInterface & NavPage_Pages & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_Form implements EntryInterface & NavPage_Pages & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_Frontpage implements EntryInterface & NavPage_Pages & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_GroupOverview implements EntryInterface & NavPage_Pages & PageInterface {
+    blueprint: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    groups: [Sets_Groups]
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_Standard implements EntryInterface & NavPage_Pages & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_SubsidyOverview implements EntryInterface & NavPage_Pages & PageInterface {
+    blueprint: String
+    categories: [Sets_Categories]
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    illustration: AssetInterface
+    increased_subsidy: [GridItem_IncreasedSubsidy]
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_link_1: String
+    subsidy_link_2: String
+    subsidy_link_title_1: String
+    subsidy_link_title_2: String
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Pages_Pages_Tilskud implements EntryInterface & NavPage_Pages & PageInterface {
+    banner_title: String!
+    blueprint: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    electronic_reporting_and_eu: Boolean
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    list: [String]
+    locale: String!
+    modal_content: String
+    modal_headline1: String
+    modal_headline2: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_categories: TermInterface
+    subsidy_entries: [EntryInterface]
+    subsidy_requirement_text1: String
+    subsidy_requirement_text2: String
+    subsidy_years: TermInterface
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_Addon implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    addon_color: LabeledValue!
+    addons: [Sets_Addons]
+    back_button: String
+    back_link: String
+    back_text: String
+    blueprint: String
+    button_link: String
+    button_text: String
+    col_1_title: String
+    col_2_title: String
+    col_3_title: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    header_content: String
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    rows: [Sets_Rows]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    table_title: String
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_AddonOverview implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_Form implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_Frontpage implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_GroupOverview implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    blueprint: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    groups: [Sets_Groups]
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_Standard implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_SubsidyOverview implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    blueprint: String
+    categories: [Sets_Categories]
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    illustration: AssetInterface
+    increased_subsidy: [GridItem_IncreasedSubsidy]
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_link_1: String
+    subsidy_link_2: String
+    subsidy_link_title_1: String
+    subsidy_link_title_2: String
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Pages_Tilskud implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    banner_title: String!
+    blueprint: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    electronic_reporting_and_eu: Boolean
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    list: [String]
+    locale: String!
+    modal_content: String
+    modal_headline1: String
+    modal_headline2: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_categories: TermInterface
+    subsidy_entries: [EntryInterface]
+    subsidy_requirement_text1: String
+    subsidy_requirement_text2: String
+    subsidy_years: TermInterface
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Providers_Frontpage implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Providers_Shadow implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_ProvidersFooter_Providers_Standard implements EntryInterface & NavPage_ProvidersFooter & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Providers_Providers_Frontpage implements EntryInterface & NavPage_Providers & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Providers_Providers_Shadow implements EntryInterface & NavPage_Providers & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Providers_Providers_Standard implements EntryInterface & NavPage_Providers & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Business_Form implements EntryInterface & NavPage_Universes & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Business_Frontpage implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Business_Shadow implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Business_Standard implements EntryInterface & NavPage_Universes & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Magazine_Article implements EntryInterface & NavPage_Universes & PageInterface {
+    author: String
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    cover_image: AssetInterface
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    published_at(format: String): String
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Magazine_Frontpage implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    editorial: [GridItem_Editorial]
+    entries: [GridItem_Entries]
+    entry_id: ID
+    heading: String
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    manchet: String
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    read_more: [EntryInterface]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Magazine_Shadow implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Magazine_Standard implements EntryInterface & NavPage_Universes & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    magazine_terms: [TermInterface]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_Addon implements EntryInterface & NavPage_Universes & PageInterface {
+    addon_color: LabeledValue!
+    addons: [Sets_Addons]
+    back_button: String
+    back_link: String
+    back_text: String
+    blueprint: String
+    button_link: String
+    button_text: String
+    col_1_title: String
+    col_2_title: String
+    col_3_title: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    header_content: String
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    rows: [Sets_Rows]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    table_title: String
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_AddonOverview implements EntryInterface & NavPage_Universes & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_Form implements EntryInterface & NavPage_Universes & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    formular: Form
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    success_link: String
+    template: String
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_Frontpage implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    hero_usp_elements: [GridItem_HeroUspElements]
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_GroupOverview implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    button_link: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    groups: [Sets_Groups]
+    header_image: AssetInterface!
+    heading: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    mobile_heading: String
+    over_footer_element: EntryInterface
+    paragraph: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_Standard implements EntryInterface & NavPage_Universes & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_SubsidyOverview implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    categories: [Sets_Categories]
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    illustration: AssetInterface
+    increased_subsidy: [GridItem_IncreasedSubsidy]
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_link_1: String
+    subsidy_link_2: String
+    subsidy_link_title_1: String
+    subsidy_link_title_2: String
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Pages_Tilskud implements EntryInterface & NavPage_Universes & PageInterface {
+    banner_title: String!
+    blueprint: String
+    button_text: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    electronic_reporting_and_eu: Boolean
+    entry_id: ID
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    list: [String]
+    locale: String!
+    modal_content: String
+    modal_headline1: String
+    modal_headline2: String
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    subsidy_categories: TermInterface
+    subsidy_entries: [EntryInterface]
+    subsidy_requirement_text1: String
+    subsidy_requirement_text2: String
+    subsidy_years: TermInterface
+    template: String
+    text1: String
+    text2: String
+    text3: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Providers_Frontpage implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    hero_body: String
+    hero_image: AssetInterface!
+    hero_link: String
+    hero_link_title: String
+    hero_title: String!
+    id: ID!
+    keywords: String
+    last_modified(format: String): String
+    locale: String!
+    operating_statuses: [Sets_OperatingStatuses]
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    replicator_content: [Sets_ReplicatorContent]
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Providers_Shadow implements EntryInterface & NavPage_Universes & PageInterface {
+    blueprint: String
+    collection: Collection!
+    date(format: String): String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    last_modified(format: String): String
+    locale: String!
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    shadowing: EntryInterface
+    site: Site!
+    slug: String!
+    status: String!
+    template: String
+    title: String!
+    uri: String
+    url: String
+}
+
+type NavEntryPage_Universes_Providers_Standard implements EntryInterface & NavPage_Universes & PageInterface {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    blueprint: String
+    collection: Collection!
+    content: [Sets_Content]
+    date(format: String): String
+    description: String
+    edit_url: String!
+    entry_id: ID
+    id: ID!
+    keywords: String
+    large_paragraph: String
+    last_modified(format: String): String
+    locale: String!
+    over_footer_element: EntryInterface
+    parent: EntryInterface
+    permalink: String
+    private: Boolean!
+    published: Boolean!
+    site: Site!
+    slug: String!
+    status: String!
+    sticky: Boolean
+    title: String!
+    title_font: LabeledValue!
+    uri: String
+    url: String
+}
+
+type NavTreeBranch {
+    children: [NavTreeBranch]
+    depth: Int!
+    page: PageInterface
+}
+
+type Navigation {
+    expects_root: Boolean!
+    handle: String!
+    max_depth: Int
+    title: String!
+    tree(site: String): [NavTreeBranch]
+}
+
+type Query {
+    asset(container: String, id: String, path: String): AssetInterface
+    assetContainer(handle: String): AssetContainer
+    assetContainers: [AssetContainer]
+    assets(container: String!, limit: Int, page: Int, sort: [String]): AssetInterfacePagination
+    collection(handle: String): Collection
+    collections: [Collection]
+    entries(collection: [String], filter: JsonArgument, limit: Int, page: Int, sort: [String]): EntryInterfacePagination
+    entry(collection: String, filter: JsonArgument, id: String, site: String, slug: String, uri: String): EntryInterface
+    form(handle: String): Form
+    forms: [Form]
+    globalSet(handle: String, site: String): GlobalSetInterface
+    globalSets: [GlobalSetInterface]
+    nav(handle: String): Navigation
+    navs: [Navigation]
+    ping: String
+    sites: [Site]
+    taxonomies: [Taxonomy]
+    taxonomy(handle: String): Taxonomy
+    term(id: String): TermInterface
+    terms(filter: JsonArgument, limit: Int, page: Int, sort: [String], taxonomy: [String]): TermInterfacePagination
+    user(email: String, id: String): User
+    users(filter: JsonArgument, limit: Int, page: Int, sort: [String]): UserPagination
+}
+
+type Role {
+    handle: String
+    title: String
+}
+
+type Set_Accordions_Accordion {
+    content: [Sets_Content]!
+    title: String!
+    type: String!
+}
+
+type Set_Addons_Addon {
+    addon_description: String!
+    addon_link: String!
+    addon_title: String!
+    type: String!
+}
+
+type Set_Addons_TilvalgsKort {
+    button: String
+    button_link: String
+    button_text: String
+    coverage: [String]
+    from_price: Boolean
+    payment_deadline: LabeledValue
+    price: Int!
+    sub_title: String!
+    title: String!
+    type: String!
+}
+
+type Set_Categories_Kategori {
+    groups: [LabeledValue]
+    subsidy_categories: TermInterface
+    subsidy_page: EntryInterface
+    symbols: [GridItem_Categories_Symbols]
+    title: String
+    type: String!
+}
+
+type Set_Content_Accordion {
+    accordions: [Sets_Accordions]
+    type: String!
+}
+
+type Set_Content_AktuelleArtikler {
+    description: String
+    entries: [EntryInterface]
+    title: String
+    type: String!
+}
+
+type Set_Content_ArticleTeaser {
+    cover_image: AssetInterface!
+    cover_video: AssetInterface
+    description: String!
+    headline: String
+    link: String!
+    link_text: String!
+    title: String!
+    type: String!
+}
+
+type Set_Content_ArticleTeaserGroup {
+    headline: String
+    replicator: [Sets_Replicator]
+    type: String!
+}
+
+type Set_Content_AudioPlayer {
+    audio_file: AssetInterface!
+    audio_title: String!
+    type: String!
+}
+
+type Set_Content_CookieSamtykke {
+    type: String!
+}
+
+type Set_Content_DanmarkTesten {
+    type: String!
+}
+
+type Set_Content_ElementMTekstOgBillede {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    bodytext: String
+    button_icon: LabeledValue
+    button_link: String
+    button_section: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    image_business: AssetInterface
+    image_magazine: AssetInterface
+    image_pages: AssetInterface
+    image_providers: AssetInterface
+    layout: String
+    layout_direction: LabeledValue
+    title: String!
+    title_font: LabeledValue!
+    title_size: LabeledValue!
+    type: String!
+    universe: LabeledValue!
+}
+
+type Set_Content_ElementWithTextAndIllustration {
+    background: LabeledValue
+    button_icon: LabeledValue
+    button_link: String
+    button_section: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    heading_family: LabeledValue
+    heading_type: LabeledValue
+    illustration: LabeledValue!
+    layout: String
+    layout_direction: LabeledValue
+    text: String
+    title: String!
+    type: String!
+}
+
+type Set_Content_ElementWithTextAndTwoCards {
+    cards: [GridItem_Cards]
+    text: String
+    title: String
+    type: String!
+}
+
+type Set_Content_EmneArtikler {
+    entries: [EntryInterface]
+    magazine_term: TermInterface
+    type: String!
+}
+
+type Set_Content_Emneoversigt {
+    title: String
+    type: String!
+}
+
+type Set_Content_Facts {
+    color: LabeledValue
+    color_standard: LabeledValue
+    fill: LabeledValue
+    text_field: [Sets_TextField]
+    type: String!
+}
+
+type Set_Content_Figure {
+    caption: String
+    image: AssetInterface
+    type: String!
+}
+
+type Set_Content_FindMedlemsmode {
+    type: String!
+}
+
+type Set_Content_Image {
+    assets: AssetInterface
+    caption: String
+    type: String!
+}
+
+type Set_Content_Knap {
+    button_icon: LabeledValue
+    button_link: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    type: String!
+}
+
+type Set_Content_LeadFamily {
+    display_smaller: Boolean
+    lead_family_url: String!
+    type: String!
+}
+
+type Set_Content_Pdf {
+    button_type: LabeledValue
+    file: AssetInterface
+    link_title: String
+    type: String!
+}
+
+type Set_Content_ReadMoreWithLink {
+    link_title: String
+    page_link: String
+    type: String!
+}
+
+type Set_Content_Reklamefilm {
+    commercials: [EntryInterface]!
+    type: String!
+}
+
+type Set_Content_StepByStep {
+    steps_element: EntryInterface
+    type: String!
+}
+
+type Set_Content_Telefon {
+    phone_number: String
+    type: String!
+}
+
+type Set_Content_Testimonials {
+    testimonials: [EntryInterface]
+    testimonials_title: String!
+    type: String!
+}
+
+type Set_Content_TidsSkema {
+    heading: String
+    heading_size: LabeledValue
+    language: LabeledValue
+    type: String!
+}
+
+type Set_Content_VideoPlayer {
+    description: String
+    large_video: Boolean
+    type: String!
+    video: AssetInterface!
+    video_poster: AssetInterface
+}
+
+type Set_FooterContent_ArticleTeaserGroup {
+    headline: String
+    replicator: [Sets_Replicator]
+    type: String!
+}
+
+type Set_FooterContent_ElementWithTextAndIllustration {
+    background: LabeledValue
+    button_icon: LabeledValue
+    button_link: String
+    button_section: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    heading_family: LabeledValue
+    heading_type: LabeledValue
+    illustration: LabeledValue!
+    layout: String
+    layout_direction: LabeledValue
+    text: String
+    title: String!
+    type: String!
+}
+
+type Set_Groups_GruppeKort {
+    addons: [Sets_Addons]
+    coverage: [String]
+    description: String!
+    details: String
+    from_price: Boolean
+    gruop_selection: LabeledValue!
+    payment_deadline: LabeledValue
+    popular_subsidy: [String]
+    price: Int!
+    primary_group_title: String!
+    requirements: String
+    requirements_description: String!
+    requirements_link: String
+    requirements_title: String!
+    secondary_group_title: String!
+    signup: String
+    signup_link: String
+    signup_text: String
+    type: String!
+}
+
+type Set_NewsWidgetElements_Nyhed {
+    description: String!
+    hide_universe_tag: Boolean
+    highlighted_link_text: String!
+    image_business: AssetInterface
+    image_magazine: AssetInterface
+    image_pages: AssetInterface
+    image_providers: AssetInterface
+    link_entry: EntryInterface!
+    title: String!
+    type: String!
+    universe: LabeledValue!
+}
+
+type Set_OperatingStatuses_OperatingStatus {
+    enabled: Boolean
+    message_button_icon: LabeledValue
+    message_button_link: String
+    message_button_text: String
+    message_text: String
+    message_title: String
+    type: String!
+}
+
+type Set_ReplicatorContent_ArticleTeaser {
+    cover_image: AssetInterface!
+    cover_video: AssetInterface
+    description: String!
+    headline: String
+    link: String!
+    link_text: String!
+    title: String!
+    type: String!
+}
+
+type Set_ReplicatorContent_ArticleTeaserGroup {
+    headline: String
+    replicator: [Sets_Replicator]
+    type: String!
+}
+
+type Set_ReplicatorContent_ElementMTekstOgBillede {
+    background_color: LabeledValue
+    background_color_magazine: LabeledValue
+    bodytext: String
+    button_icon: LabeledValue
+    button_link: String
+    button_section: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    image_business: AssetInterface
+    image_magazine: AssetInterface
+    image_pages: AssetInterface
+    image_providers: AssetInterface
+    layout: String
+    layout_direction: LabeledValue
+    title: String!
+    title_font: LabeledValue!
+    title_size: LabeledValue!
+    type: String!
+    universe: LabeledValue!
+}
+
+type Set_ReplicatorContent_ElementWithTextAndIllustration {
+    background: LabeledValue
+    button_icon: LabeledValue
+    button_link: String
+    button_section: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    heading_family: LabeledValue
+    heading_type: LabeledValue
+    illustration: LabeledValue!
+    layout: String
+    layout_direction: LabeledValue
+    text: String
+    title: String!
+    type: String!
+}
+
+type Set_ReplicatorContent_ElementWithTextAndTwoCards {
+    cards: [GridItem_Cards]
+    text: String
+    title: String
+    type: String!
+}
+
+type Set_ReplicatorContent_Facts {
+    color: LabeledValue
+    color_standard: LabeledValue
+    fill: LabeledValue
+    text_field: [Sets_TextField]
+    type: String!
+}
+
+type Set_ReplicatorContent_FigureLarge {
+    caption: String
+    image: AssetInterface
+    type: String!
+}
+
+type Set_ReplicatorContent_LeadFamily {
+    display_smaller: Boolean
+    lead_family_url: String!
+    type: String!
+}
+
+type Set_ReplicatorContent_NewsWidget {
+    news_widget_elements: [Sets_NewsWidgetElements]!
+    news_widget_title: String!
+    type: String!
+}
+
+type Set_ReplicatorContent_StepByStep {
+    steps_element: EntryInterface
+    type: String!
+}
+
+type Set_ReplicatorContent_Testimonials {
+    testimonials: [EntryInterface]
+    testimonials_title: String!
+    type: String!
+}
+
+type Set_ReplicatorContent_ThemeLinkGroup {
+    theme_links: [Sets_ThemeLinks]
+    theme_title: String
+    type: String!
+}
+
+type Set_ReplicatorContent_VideoPlayer {
+    description: String
+    large_video: Boolean
+    type: String!
+    video: AssetInterface!
+    video_poster: AssetInterface
+}
+
+type Set_Replicator_Articles {
+    cover_image: AssetInterface!
+    link: String!
+    sub_title: String!
+    title: String!
+    type: String!
+}
+
+type Set_Results_Resultat {
+    group: String!
+    html: String
+    type: String!
+    up_to: Int
+}
+
+type Set_Rows_Row {
+    col_1: Boolean
+    col_2: Boolean
+    col_3_boern: Boolean
+    col_3_rejse: LabeledValue
+    row_heading: String
+    type: String!
+}
+
+type Set_Steps_Step {
+    bodytext: String
+    illustration: AssetInterface
+    title: String
+    type: String!
+}
+
+type Set_SubsidyTableSection_SubsidyTableMaxHeader {
+    subsidy_table_max_header_title: String
+    type: String!
+}
+
+type Set_SubsidyTableSection_SubsidyTableRow {
+    hasMoreText: Boolean
+    isMaxText: Boolean
+    subsidy_table_price_extended_operation: String
+    subsidy_table_price_group_1: String
+    subsidy_table_price_group_2: String
+    subsidy_table_price_group_5: String
+    subsidy_table_price_group_s: String
+    subsidy_table_price_operation: String
+    subsidy_title: String
+    type: String!
+    whiteBackground: Boolean
+}
+
+type Set_TextField_Knap {
+    button_icon: LabeledValue
+    button_link: String
+    button_text: String
+    button_type: LabeledValue
+    button_type_addon: LabeledValue
+    type: String!
+}
+
+type Set_TextField_Pdf {
+    button_type: LabeledValue
+    file: AssetInterface
+    link_title: String
+    type: String!
+}
+
+type Set_TextField_Telefon {
+    phone_number: String
+    type: String!
+}
+
+type Set_ThemeLinks_ThemeLink {
+    slug: String!
+    theme_headline: String!
+    theme_image: AssetInterface!
+    theme_sub_text: String
+    type: String!
+}
+
+type Site {
+    handle: String!
+    locale: String!
+    name: String!
+    short_locale: String!
+    url: String!
+}
+
+type TableRow {
+    cells: [String]
+}
+
+type Taxonomy {
+    handle: String!
+    title: String!
+}
+
+type TermInterfacePagination {
+    "Current page of the cursor"
+    current_page: Int!
+    "List of items on the current page"
+    data: [TermInterface]
+    "Number of the first item returned"
+    from: Int
+    "Determines if cursor has more pages after the current page"
+    has_more_pages: Boolean!
+    "The last page (number of pages)"
+    last_page: Int!
+    "Number of items returned per page"
+    per_page: Int!
+    "Number of the last item returned"
+    to: Int
+    "Number of total items selected by the query"
+    total: Int!
+}
+
+type Term_MagazineTerms_MagazineTerms implements TermInterface {
+    edit_url: String!
+    id: ID!
+    image: AssetInterface
+    permalink: String
+    slug: String!
+    taxonomy: Taxonomy!
+    title: String!
+    uri: String
+    url: String
+}
+
+type Term_SubsidyCategories_SubsidyCategories implements TermInterface {
+    content(
+        "How the value should be formatted. Either \"markdown\" or \"html\". Defaults to \"html\"."
+        format: String = "html"
+    ): String
+    edit_url: String!
+    id: ID!
+    illustration: AssetInterface
+    permalink: String
+    slug: String!
+    taxonomy: Taxonomy!
+    title: String!
+    uri: String
+    url: String
+}
+
+type Term_SubsidyYears_SubsidyYears implements TermInterface {
+    content(
+        "How the value should be formatted. Either \"markdown\" or \"html\". Defaults to \"html\"."
+        format: String = "html"
+    ): String
+    edit_url: String!
+    id: ID!
+    permalink: String
+    slug: String!
+    taxonomy: Taxonomy!
+    title: String!
+    uri: String
+    url: String
+}
+
+type User {
+    edit_url: String
+    email: String
+    groups: [UserGroup]
+    id: String
+    initials: String
+    name: String
+    roles: [Role]
+    tfa: String
+}
+
+type UserGroup {
+    handle: String
+    title: String
+}
+
+type UserPagination {
+    "Current page of the cursor"
+    current_page: Int!
+    "List of items on the current page"
+    data: [User]
+    "Number of the first item returned"
+    from: Int
+    "Determines if cursor has more pages after the current page"
+    has_more_pages: Boolean!
+    "The last page (number of pages)"
+    last_page: Int!
+    "Number of items returned per page"
+    per_page: Int!
+    "Number of the last item returned"
+    to: Int
+    "Number of total items selected by the query"
+    total: Int!
+}
+
+scalar Array
+
+scalar JsonArgument
