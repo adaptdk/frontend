@@ -1,0 +1,9 @@
+fragment videoPlayerFieldsContent on Set_Content_VideoPlayer {
+  __typename
+  type
+}
+
+fragment videoPlayerFieldsReplicatorContent on Set_ReplicatorContent_VideoPlayer {
+  __typename
+  type
+}

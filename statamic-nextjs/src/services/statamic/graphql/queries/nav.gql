@@ -1,0 +1,11 @@
+query getNav($handle: String!) {
+  nav(handle: $handle) {
+    title
+    tree {
+      page {
+        title
+        url
+      }
+    }
+  }
+}

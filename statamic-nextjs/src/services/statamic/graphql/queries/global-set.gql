@@ -1,0 +1,16 @@
+query getGlobalSet($handle: String!) {
+  globalSet(handle: $handle) {
+    site {
+      name
+      url
+    }
+    ... on GlobalSet_Seo {
+      site {
+        locale
+        name
+        short_locale
+        url
+      }
+    }
+  }
+}

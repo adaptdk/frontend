@@ -1,7 +1,7 @@
 overwrite: true
 schema:
   - 'https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql'
-documents: 'src/services/statamic/queries/**/*.gql'
+documents: 'src/services/statamic/graphql/**/*.gql'
 hooks:
   afterAllFileWrite:
     - 'prettier --write'
