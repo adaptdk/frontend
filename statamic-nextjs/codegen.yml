@@ -1,0 +1,23 @@
+overwrite: true
+schema:
+  - https://www.headless-5cj5jmy-br3bvmw5mdtds:de-2:platformsh:site/graphql:
+      headers:
+        content-type: 'application/json'
+        accept: 'application/json'
+documents: 'src/services/statamic/queries/**/*.gql'
+hooks:
+  afterAllFileWrite:
+    - 'prettier --write'
+    - 'eslint --fix'
+generates:
+  src/services/statamic/generated.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
+    config:
+      avoidOptionals: true
+      namingConvention: keep
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'
