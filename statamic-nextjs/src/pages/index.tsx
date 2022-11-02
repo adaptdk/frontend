@@ -1,5 +1,5 @@
 import { Header } from '@foundation/ui/components/04-habitats/Header'
-import { LayoutFrontpage } from '@project/Layouts/LayoutFrontpage'
+import { LayoutFrontpage } from '@project/Layouts'
 import { gql, request } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -41,29 +41,45 @@ export const getStaticProps: GetStaticProps = async (context) => {
           hero_title
           hero_link_title
           hero_link
-          replicator_content {
-            ... on Set_ReplicatorContent_VideoPlayer {
-              description
-              large_video
+          hero_usp_elements {
+            icon {
+              value
+              label
             }
-            ... on Set_ReplicatorContent_ElementWithTextAndTwoCards {
+            text
+          }
+          replicator_content {
+            __typename
+            ... on Set_ReplicatorContent_ElementMTekstOgBillede {
+              bodytext
+              layout
+              button_link
+              button_text
+              layout_direction {
+                value
+              }
               title
-              text
+              image_pages {
+                permalink
+              }
+              background_color {
+                value
+              }
             }
             ... on Set_ReplicatorContent_ElementWithTextAndIllustration {
               text
               layout
-            }
-            ... on Set_ReplicatorContent_ElementMTekstOgBillede {
-              bodytext
-              layout
-            }
-            ... on Set_ReplicatorContent_NewsWidget {
-              news_widget_title
-              news_widget_elements {
-                ... on Set_NewsWidgetElements_Nyhed {
-                  hide_universe_tag
-                }
+              layout_direction {
+                value
+              }
+              title
+              background {
+                value
+              }
+              button_link
+              button_text
+              illustration {
+                value
               }
             }
           }

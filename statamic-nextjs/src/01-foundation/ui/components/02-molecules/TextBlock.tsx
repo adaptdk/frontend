@@ -1,4 +1,5 @@
-import { AnchorHTMLAttributes, ReactNode } from "react"
+import { ReactNode } from "react"
+import { Heading } from "../01-atoms/Heading"
 import { LinkButton } from "../01-atoms/LinkButton"
 
 export type Props = {
@@ -7,6 +8,8 @@ export type Props = {
   buttonLabel: string
   buttonLink: string
   className?: string
+  headingLevel?: string
+  headingStyle?: string
 }
 
 export const TextBlock = ({
@@ -15,12 +18,14 @@ export const TextBlock = ({
   buttonLabel,
   buttonLink,
   className,
+  headingLevel = 'h2',
+  headingStyle = 'lg'
 }: Props) => {
   return (
     <div className={`space-y-2xl ${className}`}>
       <div className="space-y-md">
-        <h1 className="font-display text-5xl">{heading}</h1>
-        <p className="font-sans text-base">{children}</p>
+        <Heading headingLevel={headingLevel} headingStyle={headingStyle}>{heading}</Heading>
+        <div className="font-sans text-base">{children}</div>
       </div>
       <LinkButton href={buttonLink}>{buttonLabel}</LinkButton>
     </div>
