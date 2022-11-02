@@ -68,7 +68,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
               }
               title
               image_pages {
-                permalink
+                ... on Asset_Pages {
+                  id
+                  permalink
+                  width
+                  height
+                  alt
+                }
               }
               background_color {
                 value
