@@ -9,15 +9,14 @@ import { useRouter } from 'next/router'
 
 type Props = any
 
-const Home: NextPage<Props> = ({ nav, header, globalSet, ...rest }) => {
-  console.log(globalSet)
+const Home: NextPage<Props> = ({ nav, header, globalSet, entry }) => {
   const { asPath } = useRouter()
 
   return (
     <div>
       <Head>
-        <title>{`${rest.entry?.title} | ${globalSet?.site.name}`}</title>
-        <meta name="description" content={rest.entry?.description || FALLBACK_DESCRIPTION} />
+        <title>{`${entry?.title} | ${globalSet?.site.name}`}</title>
+        <meta name="description" content={entry?.description || FALLBACK_DESCRIPTION} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -25,7 +24,7 @@ const Home: NextPage<Props> = ({ nav, header, globalSet, ...rest }) => {
 
       <Header header={header} />
 
-      <LayoutFrontpage content={rest.entry} />
+      <LayoutFrontpage content={entry} />
     </div>
   )
 }
@@ -41,6 +40,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }
         ... on Entry_Pages_Frontpage {
           id
+          description
           hero_body
           hero_image {
             url
@@ -80,6 +80,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       globalSet(handle: "seo") {
         site {
           name
+          url
         }
         ... on GlobalSet_Seo {
           site {

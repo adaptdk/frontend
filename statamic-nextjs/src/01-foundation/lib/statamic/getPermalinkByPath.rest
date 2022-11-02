@@ -1,0 +1,10 @@
+POST https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query {
+  asset(container:"all", path:"/assets/text-with-illustration/sd-mand-dame.png") {
+    id
+    permalink
+  }
+}
