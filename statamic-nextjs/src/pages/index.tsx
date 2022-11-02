@@ -1,3 +1,4 @@
+import { LayoutFrontpage } from '@project/Layouts/LayoutFrontpage'
 import { gql, request } from 'graphql-request'
 import { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -6,6 +7,7 @@ type Props = any
 
 const Home: NextPage<Props> = ({ ...rest }) => {
   console.log(rest)
+  
   return (
     <div>
       <Head>
@@ -14,13 +16,7 @@ const Home: NextPage<Props> = ({ ...rest }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>
-          Does it return pong: <i></i>
-        </h1>
-
-        <p>...then we have access to Statamic!</p>
-      </main>
+      <LayoutFrontpage content={rest.entry} />
     </div>
   )
 }
@@ -30,11 +26,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
     {
       entry(uri: "/") {
         title
+        blueprint
         ... on Entry_Pages_Frontpage {
           id
           hero_body
           hero_image {
             url
+            permalink
           }
           hero_title
           hero_link_title
