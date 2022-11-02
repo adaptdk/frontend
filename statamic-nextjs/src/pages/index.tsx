@@ -1,4 +1,3 @@
-import { FALLBACK_DESCRIPTION } from '@foundation/config/constants'
 import { Header } from '@foundation/ui/components/04-habitats/Header'
 import { TopBar } from '@foundation/ui/components/04-habitats/TopBar'
 import { LayoutFrontpage } from '@project/Layouts'
