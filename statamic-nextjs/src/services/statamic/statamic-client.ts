@@ -1,7 +1,7 @@
 import { GraphQLClient } from 'graphql-request'
 
-import { GRAPHQL_URL } from './constants'
-import { getSdk } from './generated'
+import { getSdk } from './generated/generated-types'
+import { GRAPHQL_URL } from './statamic-constants'
 
 const client = new GraphQLClient(GRAPHQL_URL, {
   headers: {

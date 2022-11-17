@@ -1,1 +1,1 @@
-export * from './statamic.service'
+export { statamicClient } from './statamic-client'

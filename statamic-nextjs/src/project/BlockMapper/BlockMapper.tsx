@@ -1,5 +1,5 @@
-import { BlockTextIllustration } from '@foundation/ui/components/03-organisms/BlockTextIllustration'
-import { BlockTextImage } from '@foundation/ui/components/03-organisms/BlockTextImage'
+import { BlockTextIllustration } from 'ui/components/03-organisms/BlockTextIllustration'
+import { BlockTextImage } from 'ui/components/03-organisms/BlockTextImage'
 
 export const BlockMapper = (props: any) => {
   switch (props.__typename) {

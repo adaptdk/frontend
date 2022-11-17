@@ -7,7 +7,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site',
-        port: '',
         pathname: '/files/**',
       },
     ],

@@ -6,7 +6,7 @@ hooks:
   afterAllFileWrite:
     - 'prettier --write'
 generates:
-  src/services/statamic/generated.ts:
+  src/services/statamic/generated/generated-types.ts:
     plugins:
       - 'typescript'
       - 'typescript-operations'
@@ -14,6 +14,6 @@ generates:
     config:
       avoidOptionals: true
       namingConvention: keep
-  ./graphql.schema.json:
+  src/services/statamic/generated/graphql.schema.json:
     plugins:
       - 'introspection'

@@ -1,12 +1,12 @@
-import { FALLBACK_DESCRIPTION } from '@foundation/config/constants'
-import { Header } from '@foundation/ui/components/04-habitats/Header'
-import { TopBar } from '@foundation/ui/components/04-habitats/TopBar'
 import classNames from 'classnames'
+import { FALLBACK_DESCRIPTION } from 'config/constants'
 import { gql, request } from 'graphql-request'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Header } from 'ui/components/04-habitats/Header'
+import { TopBar } from 'ui/components/04-habitats/TopBar'
 
 type Props = any
 

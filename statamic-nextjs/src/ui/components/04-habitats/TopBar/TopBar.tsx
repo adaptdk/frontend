@@ -2,15 +2,16 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-type NavItem = {
-  page: {
-    title: string
-    url: string
-  }
-}
-
 export type Props = {
-  nav: any
+  nav: {
+    title: string
+    tree: {
+      page: {
+        url: string
+        title: string
+      }
+    }[]
+  }
   asPath: string
 }
 
