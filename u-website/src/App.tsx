@@ -2,8 +2,10 @@ import { Counter } from "components/Counter";
 import { Footer } from "components/Footer";
 import { Header } from "components/Header";
 import { Hero } from "components/Hero";
+import { Lights } from "components/Lights";
 import { NewsBanner } from "components/NewsBanner";
 import Snowfall from "react-snowfall";
+import { Santa } from "components/Santa";
 
 const App = () => {
   return (
@@ -19,10 +21,12 @@ const App = () => {
         wind={[4, 10]}
         radius={[1, 15]}
       />
+      <Lights />
       <div>
         <Header />
         <Hero />
         <NewsBanner />
+        <Santa />
       </div>
       <Counter />
       <Footer />
