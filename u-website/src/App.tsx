@@ -4,8 +4,8 @@ import { Header } from "components/Header";
 import { Hero } from "components/Hero";
 import { Lights } from "components/Lights";
 import { NewsBanner } from "components/NewsBanner";
-import Snowfall from "react-snowfall";
 import { Santa } from "components/Santa";
+import Snowfall from "react-snowfall";
 
 const App = () => {
   return (
@@ -16,10 +16,10 @@ const App = () => {
           width: "100vw",
           height: "100vh",
         }}
-        snowflakeCount={750}
-        speed={[7, 10]}
-        wind={[4, 10]}
-        radius={[1, 15]}
+        snowflakeCount={25000}
+        speed={[1, 2]}
+        wind={[1, 2]}
+        radius={[1, 5]}
       />
       <Lights />
       <div>
