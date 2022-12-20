@@ -1,6 +1,6 @@
 export const NewsBanner = () => {
   return (
-    <div className="max-w-6xl mx-auto my-16 px-4">
+    <div className="max-w-7xl mx-auto my-16 px-4">
       <h2 className="uppercase font-semibold text-3xl text-blue-900 mb-8">
         Seneste nyheder
       </h2>

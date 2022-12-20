@@ -2,9 +2,9 @@ export const Hero = () => {
   return (
     <div
       style={{ backgroundImage: "url('/composable-hero.jpg')" }}
-      className="h-[50vh] bg-cover flex flex-col justify-end p-10"
+      className="h-[50vh] bg-cover flex flex-col justify-end p-14"
     >
-      <div className="space-y-6">
+      <div className="space-y-6 max-w-7xl">
         <p className="bg-red-400 px-2 py-1 text-white inline-block">
           Privat sektor
         </p>
