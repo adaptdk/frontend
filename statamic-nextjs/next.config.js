@@ -6,7 +6,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site',
+        hostname: 'sd-statamic.test',
         pathname: '/files/**',
       },
     ],

@@ -39,7 +39,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params, preview, previewData }) => {
+  let token
+
+  if (typeof previewData === 'object' && 'token' in previewData) {
+    token = (previewData as { token: string }).token
+  }
+
   const { slug } = params ?? {}
 
   if (!slug) {
@@ -52,7 +58,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const pageQuery = gql`
     {
-      entry(uri: "/${uri}") {
+      entry(uri: "/${uri}", filter: { status: { in: ["draft", "published"] } }) {
         title
         url
         collection {
@@ -84,10 +90,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   `
 
-  const response = await request(
-    'https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql',
-    pageQuery
-  )
+  const response = await request(`https://sd-statamic.test/graphql?token=${token}`, pageQuery)
 
   const headerQuery = gql`
     {
@@ -109,10 +112,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   `
 
-  const header = await request(
-    'https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql',
-    headerQuery
-  )
+  const header = await request('https://sd-statamic.test/graphql', headerQuery)
 
   return {
     props: {

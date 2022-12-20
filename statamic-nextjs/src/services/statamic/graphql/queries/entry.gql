@@ -1,5 +1,5 @@
 query getEntry($uri: String!) {
-  entry(uri: $uri) {
+  entry(uri: $uri, filter: { status: { in: ["draft", "published"] } }) {
     title
     blueprint
     collection {

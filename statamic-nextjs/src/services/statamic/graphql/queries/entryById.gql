@@ -1,0 +1,12 @@
+query getEntryById($id: String!) {
+  entry(id: $id, filter: { status: { in: ["draft", "published"] } }) {
+    title
+    uri
+    parent {
+      uri
+    }
+    collection {
+      handle
+    }
+  }
+}

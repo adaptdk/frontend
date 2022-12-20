@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - 'https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql'
+  - 'https://sd-statamic.test/graphql'
 documents: 'src/services/statamic/graphql/**/*.gql'
 hooks:
   afterAllFileWrite:

@@ -1,4 +1,4 @@
-import { GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
+import { GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { LayoutFrontpage } from 'project/Layouts'
@@ -48,11 +48,17 @@ const Home: NextPage<Props> = ({ nav, header, globalSet, entry }) => {
   )
 }
 
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  try {
-    const response = await statamicClient.getFrontpage()
+export const getStaticProps: GetStaticProps = async (context) => {
+  let token
 
-    const header = await statamicClient.getHeader({
+  if (typeof context.previewData === 'object' && 'token' in context.previewData) {
+    token = (context.previewData as { token: string }).token
+  }
+
+  try {
+    const response = await statamicClient(token).getFrontpage()
+
+    const header = await statamicClient(token).getHeader({
       handle: `${response?.entry?.collection.handle}`,
     })
 
@@ -64,6 +70,10 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     }
   } catch (error) {
     console.error(error)
+
+    return {
+      props: {},
+    }
   }
 }
 

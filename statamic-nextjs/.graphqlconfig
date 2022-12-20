@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "Statamic Graphql Endpoint": {
-        "url": "https://www.headless-5cj5jmy-br3bvmw5mdtds.de-2.platformsh.site/graphql",
+        "url": "https://sd-statamic.test/graphql",
         "introspect": true
       }
     }
