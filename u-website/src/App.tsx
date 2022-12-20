@@ -2,6 +2,7 @@ import { Footer } from "components/Footer";
 import { Header } from "components/Header";
 import { Hero } from "components/Hero";
 import { NewsBanner } from "components/NewsBanner";
+import { Santa } from "components/Santa";
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
         <Header />
         <Hero />
         <NewsBanner />
+        <Santa />
       </div>
       <Footer />
     </div>
