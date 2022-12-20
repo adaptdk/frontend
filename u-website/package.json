@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "autoprefixer": "^10.4.13",
+    "framer-motion": "^7.10.2",
     "postcss": "^8.4.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-snowfall": "^1.2.1",
     "vite-tsconfig-paths": "^4.0.3"
   },
   "devDependencies": {
