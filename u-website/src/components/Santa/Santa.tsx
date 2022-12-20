@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 export const Santa = () => {
   return (
     <motion.img
-      className="w-96 h-96 fixed right-0 bottom-0"
+      className="w-64 h-64 fixed right-0 bottom-0"
       src="/ZgUz.gif"
       animate={{
         scale: [1, 2, 2, 1, 1],
