@@ -21,6 +21,12 @@ export default function Home() {
           repo="gsv-kundeportal"
           workflow_id="smoke.yml"
         />
+        {/* @ts-expect-error Async Server Component */}
+        <Status
+          owner="adaptdk"
+          repo="gsv-kundeportal-api"
+          workflow_id="laravel.yml"
+        />
       </div>
     </main>
   );
